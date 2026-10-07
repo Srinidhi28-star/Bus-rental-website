@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveEase | Premium & Affordable Car Rentals</title>
+  <meta name="description" content="Rent premium, luxury, and economy cars with DriveEase. Best prices, 24/7 roadside support, and instant online booking.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Responsive Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-car-side text-warning me-2"></i>Drive<span>Ease</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="cars.html">Vehicles Fleet</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="tel:+18005550199" class="text-white d-none d-xl-flex align-items-center me-2 text-decoration-none">
+            <i class="fas fa-phone-alt text-warning me-2"></i> +1 (800) 555-0199
+          </a>
+          <a href="cars.html" class="btn btn-accent"><i class="fas fa-key me-1"></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 text-center text-lg-start">
+          <div class="hero-badge">
+            <i class="fas fa-shield-alt"></i> #1 Rated Car Rental Service 2026
+          </div>
+          <h1 class="hero-title">Experience Freedom On The Open Road With <span>DriveEase</span></h1>
+          <p class="hero-lead">Unmatched comfort, flexible rental plans, and a premium fleet of luxury sedans, sports convertibles, electric EVs, and SUVs ready for your journey.</p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+            <a href="cars.html" class="btn btn-accent btn-lg"><i class="fas fa-car me-2"></i>Explore Fleet</a>
+            <a href="about.html" class="btn btn-outline-light-custom btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Form Overlay Section -->
+  <section class="container search-card-wrapper mb-5">
+    <div class="search-card">
+      <h4 class="fw-bold mb-3 text-dark"><i class="fas fa-search me-2 text-warning"></i> Find Your Ideal Car</h4>
+      <form id="heroSearchForm">
+        <div class="row g-3">
+          <div class="col-lg-3 col-md-6">
+            <label for="pickupLocation" class="form-label">Pickup Location</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="fas fa-map-marker-alt text-warning"></i></span>
+              <select class="form-select" id="pickupLocation" required>
+                <option value="" selected disabled>Select City / Airport</option>
+                <option value="New York Downtown">New York Downtown</option>
+                <option value="JFK Airport">JFK International Airport</option>
+                <option value="Los Angeles Intl">Los Angeles Intl Airport</option>
+                <option value="Miami Beach">Miami Beach Hub</option>
+                <option value="Chicago Airport">Chicago O'Hare Airport</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <label for="dropoffLocation" class="form-label">Drop-off Location</label>
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="fas fa-location-arrow text-warning"></i></span>
+              <select class="form-select" id="dropoffLocation" required>
+                <option value="" selected disabled>Select City / Airport</option>
+                <option value="Same Location">Same as Pickup</option>
+                <option value="New York Downtown">New York Downtown</option>
+                <option value="JFK Airport">JFK International Airport</option>
+                <option value="Los Angeles Intl">Los Angeles Intl Airport</option>
+                <option value="Miami Beach">Miami Beach Hub</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <label for="pickupDate" class="form-label">Pickup Date</label>
+            <input type="date" class="form-control" id="pickupDate" required>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <label for="returnDate" class="form-label">Return Date</label>
+            <input type="date" class="form-control" id="returnDate" required>
+          </div>
+          <div class="col-lg-2 col-md-12 d-flex align-items-end">
+            <button type="submit" class="btn btn-accent w-100 py-3"><i class="fas fa-search me-1"></i> Search Cars</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Featured Cars Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Our Premier Fleet</span>
+        <h2 class="section-title">Featured Vehicles Ready To Rent</h2>
+        <p class="text-muted mx-auto" style="max-width: 650px;">Choose from our meticulously maintained fleet of high-performance vehicles for business trips, weekend getaways, or luxury travel.</p>
+      </div>
+
+      <div class="row" id="featuredCarsContainer">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="cars.html" class="btn btn-navy btn-lg"><i class="fas fa-th me-2"></i>View All Fleet Vehicles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Why DriveEase</span>
+        <h2 class="section-title">The DriveEase Advantage</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">We deliver a seamless car rental experience built on transparency, reliability, and customer satisfaction.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i class="fas fa-tags"></i>
+            </div>
+            <h4 class="fw-bold mb-2">Best Price Guarantee</h4>
+            <p class="text-muted font-size-sm mb-0">Enjoy transparent competitive pricing with no hidden fees or surprise insurance markups.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h4 class="fw-bold mb-2">24/7 Roadside Assistance</h4>
+            <p class="text-muted font-size-sm mb-0">Our dedicated support team is available round-the-clock wherever your trip takes you.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <h4 class="fw-bold mb-2">Free Cancellation</h4>
+            <p class="text-muted font-size-sm mb-0">Plans change! Enjoy full refunds on cancellations made up to 24 hours before pickup.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i class="fas fa-pump-soap"></i>
+            </div>
+            <h4 class="fw-bold mb-2">Sanitized & Inspected</h4>
+            <p class="text-muted font-size-sm mb-0">Every vehicle undergoes rigorous multi-point safety inspections and deep sanitization.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Simple 3-Step Rental</span>
+        <h2 class="section-title">How DriveEase Works</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">Get behind the wheel of your dream rental vehicle in three quick steps.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-4">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h4 class="fw-bold mb-2">Choose Your Car</h4>
+            <p class="text-muted">Browse our extensive fleet of sedans, SUVs, and luxury sports cars filtered to fit your style and budget.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h4 class="fw-bold mb-2">Book Online Instant</h4>
+            <p class="text-muted">Select your pickup location, pick dates, choose options like GPS or insurance, and confirm in seconds.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h4 class="fw-bold mb-2">Drive Away Happy</h4>
+            <p class="text-muted">Pick up your key at our convenient location or airport desk and enjoy your smooth journey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Counter Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3 col-6">
+          <div class="stat-box">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Luxury Vehicles</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <div class="stat-box">
+            <div class="stat-number">25,000+</div>
+            <div class="stat-label">Happy Drivers</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <div class="stat-box">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Rental Locations</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <div class="stat-box">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Years Excellence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Real Client Feedback</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">Thousands of satisfied business travelers and vacationers trust DriveEase every year.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="testimonial-card">
+            <div class="stars-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"DriveEase provided me with an immaculate Mercedes E-Class for my executive meetings in Los Angeles. Airport pickup was effortless and the staff was super friendly!"</p>
+            <div class="user-info">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Sarah Jenkins" class="user-avatar">
+              <div>
+                <h5 class="user-name">Sarah Jenkins</h5>
+                <p class="user-role">Corporate Strategist</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="testimonial-card">
+            <div class="stars-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Rented a Range Rover Sport for our family road trip across California. Extremely clean vehicle, smooth drive, and total transparency in pricing. Highly recommended!"</p>
+            <div class="user-info">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="David Miller" class="user-avatar">
+              <div>
+                <h5 class="user-name">David Miller</h5>
+                <p class="user-role">Travel Blogger</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="testimonial-card">
+            <div class="stars-rating">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Booking the Tesla Model 3 online took under two minutes! The electric range was fantastic and charge point integration was effortless. Best rental experience ever."</p>
+            <div class="user-info">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Elena Rostova" class="user-avatar">
+              <div>
+                <h5 class="user-name">Elena Rostova</h5>
+                <p class="user-role">Tech Entrepreneur</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Banner -->
+  <section class="container py-5">
+    <div class="cta-banner text-center text-lg-start">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mb-4 mb-lg-0">
+          <h2 class="fw-bold text-white mb-2">Ready to hit the road with DriveEase?</h2>
+          <p class="text-light mb-0 opacity-90">Book your premium vehicle today and enjoy up to 15% off on weekly rentals with free cancellation.</p>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+          <a href="cars.html" class="btn btn-accent btn-lg px-4"><i class="fas fa-car-side me-2"></i> Reserve Your Vehicle</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="footer-brand">
+            <i class="fas fa-car-side text-warning me-2"></i>Drive<span>Ease</span>
+          </a>
+          <p class="mb-4">DriveEase is a premier car rental platform dedicated to offering executive luxury, electric vehicles, and versatile SUVs at transparent and competitive prices.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+            <li><a href="cars.html"><i class="fas fa-angle-right me-2"></i>Cars Fleet</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right me-2"></i>About Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right me-2"></i>Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Vehicle Types</h5>
+          <ul class="footer-links">
+            <li><a href="cars.html?category=Luxury"><i class="fas fa-angle-right me-2"></i>Luxury Executive</a></li>
+            <li><a href="cars.html?category=SUV"><i class="fas fa-angle-right me-2"></i>SUVs & Crossovers</a></li>
+            <li><a href="cars.html?category=Electric"><i class="fas fa-angle-right me-2"></i>Electric EVs</a></li>
+            <li><a href="cars.html?category=Convertible"><i class="fas fa-angle-right me-2"></i>Convertible Sports</a></li>
+            <li><a href="cars.html?category=Economy"><i class="fas fa-angle-right me-2"></i>Economy Sedans</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Contact Details</h5>
+          <ul class="footer-links text-light">
+            <li class="d-flex gap-3 align-items-center mb-3">
+              <i class="fas fa-map-marker-alt text-warning"></i>
+              <span>750 Fifth Avenue, Suite 1200, New York, NY 10019</span>
+            </li>
+            <li class="d-flex gap-3 align-items-center mb-3">
+              <i class="fas fa-phone-alt text-warning"></i>
+              <span>+1 (800) 555-0199</span>
+            </li>
+            <li class="d-flex gap-3 align-items-center mb-3">
+              <i class="fas fa-envelope text-warning"></i>
+              <span>support@driveease-rentals.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center text-md-between d-md-flex align-items-center justify-content-between">
+        <p class="mb-0">&copy; 2026 DriveEase Car Rental. All Rights Reserved.</p>
+        <p class="mb-0 mt-2 mt-md-0 text-muted">Designed for smooth road journeys worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+  <!-- Custom Script -->
+  <script src="js/script.js"></script>
+</body>
+</html>

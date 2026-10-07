@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Support | DriveEase Car Rental</title>
+  <meta name="description" content="Get in touch with DriveEase 24/7 support team. Find our contact numbers, office locations, submit inquiries, or view FAQs.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Responsive Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-car-side text-warning me-2"></i>Drive<span>Ease</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="cars.html">Vehicles Fleet</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="tel:+18005550199" class="text-white d-none d-xl-flex align-items-center me-2 text-decoration-none">
+            <i class="fas fa-phone-alt text-warning me-2"></i> +1 (800) 555-0199
+          </a>
+          <a href="cars.html" class="btn btn-accent"><i class="fas fa-key me-1"></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <header class="page-banner">
+    <div class="container">
+      <h1 class="page-banner-title">Contact & Support</h1>
+      <ul class="breadcrumb-custom">
+        <li><a href="index.html">Home</a></li>
+        <li><i class="fas fa-chevron-right text-muted font-size-xs mx-1"></i></li>
+        <li class="active">Contact Us</li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Contact Cards Section -->
+  <section class="py-5">
+    <div class="container py-2">
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="contact-info-card">
+            <div class="contact-icon-box">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div>
+              <h5 class="fw-bold text-navy mb-1">Phone Number</h5>
+              <p class="text-muted font-size-sm mb-1">+1 (800) 555-0199</p>
+              <p class="text-muted font-size-sm mb-0">+1 (212) 555-0144</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="contact-info-card">
+            <div class="contact-icon-box">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h5 class="fw-bold text-navy mb-1">Email Address</h5>
+              <p class="text-muted font-size-sm mb-1">support@driveease.com</p>
+              <p class="text-muted font-size-sm mb-0">reservations@driveease.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="contact-info-card">
+            <div class="contact-icon-box">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h5 class="fw-bold text-navy mb-1">Headquarters</h5>
+              <p class="text-muted font-size-sm mb-0">750 Fifth Avenue, Suite 1200<br>New York, NY 10019</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="contact-info-card">
+            <div class="contact-icon-box">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div>
+              <h5 class="fw-bold text-navy mb-1">Operating Hours</h5>
+              <p class="text-muted font-size-sm mb-1">Mon - Sun: 24 / 7 Support</p>
+              <p class="text-muted font-size-sm mb-0">Pickup Counter: 06:00 - 23:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Map Section -->
+  <section class="py-5 bg-white">
+    <div class="container py-3">
+      <div class="row g-5">
+        
+        <!-- Left Column: Form -->
+        <div class="col-lg-6">
+          <span class="section-subtitle">Get In Touch</span>
+          <h2 class="section-title mb-3">Send Us A Message</h2>
+          <p class="text-muted mb-4">Have questions about a reservation, custom fleet rentals, or corporate partnerships? Fill out the form below and our team will get back to you within 2 hours.</p>
+
+          <div id="contactSuccessAlert" class="alert alert-success d-none rounded-3 mb-4" role="alert">
+            <i class="fas fa-check-circle me-2"></i> Thank you! Your message has been sent successfully. We will contact you shortly.
+          </div>
+
+          <form id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="contactName" class="form-label fw-bold font-size-sm text-navy">Your Name *</label>
+                <input type="text" class="form-control" id="contactName" placeholder="e.g. John Doe" required>
+              </div>
+              <div class="col-md-6">
+                <label for="contactEmail" class="form-label fw-bold font-size-sm text-navy">Email Address *</label>
+                <input type="email" class="form-control" id="contactEmail" placeholder="e.g. john@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label for="contactPhone" class="form-label fw-bold font-size-sm text-navy">Phone Number</label>
+                <input type="tel" class="form-control" id="contactPhone" placeholder="e.g. +1 555-0199">
+              </div>
+              <div class="col-md-6">
+                <label for="contactSubject" class="form-label fw-bold font-size-sm text-navy">Subject</label>
+                <select class="form-select" id="contactSubject">
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Booking Modification">Booking Modification</option>
+                  <option value="Corporate Partnership">Corporate Partnership</option>
+                  <option value="Roadside Support">Roadside Support</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="contactMessage" class="form-label fw-bold font-size-sm text-navy">Your Message *</label>
+                <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can our team help you?" required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-accent btn-lg px-4"><i class="fas fa-paper-plane me-2"></i> Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right Column: Interactive Map Placeholder -->
+        <div class="col-lg-6">
+          <span class="section-subtitle">Our Location</span>
+          <h2 class="section-title mb-3">Find Us On The Map</h2>
+          <p class="text-muted mb-4">Visit our main downtown flagship rental hub located in the heart of Manhattan.</p>
+
+          <div class="rounded-4 overflow-hidden shadow-sm border" style="height: 420px; position: relative;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.097022880056!2d-73.97491142342371!3d40.76101997138547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f97bdb1009%3A0x6b4459f2709a32c2!2s750%205th%20Ave%2C%20New%20York%2C%20NY%2010019!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section class="py-5">
+    <div class="container py-3">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">Quick answers to common questions about driver requirements, insurance, and booking policies.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion accordion-custom" id="faqAccordion">
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <i class="fas fa-question-circle text-warning me-2"></i> What documents do I need to rent a vehicle?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  You will need a valid driver's license held for at least 1 year, a government-issued photo ID or passport, and a major credit card or debit card in the primary driver's name. International drivers must present an International Driving Permit (IDP) alongside their national license.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <i class="fas fa-question-circle text-warning me-2"></i> Is there a minimum age requirement for rentals?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  The standard minimum age to rent with DriveEase is 21 years old. Drivers aged 21-24 may incur a nominal young driver surcharge depending on the vehicle category. Luxury and high-performance supercars require drivers to be at least 25 years old.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <i class="fas fa-question-circle text-warning me-2"></i> What is your cancellation and refund policy?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  DriveEase offers 100% free cancellations on all standard reservations up to 24 hours prior to your scheduled pickup time. No cancellation fee will be charged and any pre-paid amounts will be fully refunded to your original payment method.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <i class="fas fa-question-circle text-warning me-2"></i> Are insurance and roadside support included?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  All rentals come standard with basic third-party liability coverage and 24/7 nationwide roadside assistance. During checkout, you can opt for additional Full Collision Damage Waiver (CDW) protection for maximum peace of mind.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  <i class="fas fa-question-circle text-warning me-2"></i> How does electric vehicle (EV) charging work?
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  All electric vehicles (such as Tesla and Porsche Taycan) are delivered with at least 80% charge. You will be provided with an EV charging network adapter card for access to nationwide Superchargers and public charging stations.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="footer-brand">
+            <i class="fas fa-car-side text-warning me-2"></i>Drive<span>Ease</span>
+          </a>
+          <p class="mb-4">DriveEase is a premier car rental platform dedicated to offering executive luxury, electric vehicles, and versatile SUVs at transparent and competitive prices.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+            <li><a href="cars.html"><i class="fas fa-angle-right me-2"></i>Cars Fleet</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right me-2"></i>About Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right me-2"></i>Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Vehicle Types</h5>
+          <ul class="footer-links">
+            <li><a href="cars.html?category=Luxury"><i class="fas fa-angle-right me-2"></i>Luxury Executive</a></li>
+            <li><a href="cars.html?category=SUV"><i class="fas fa-angle-right me-2"></i>SUVs & Crossovers</a></li>
+            <li><a href="cars.html?category=Electric"><i class="fas fa-angle-right me-2"></i>Electric EVs</a></li>
+            <li><a href="cars.html?category=Convertible"><i class="fas fa-angle-right me-2"></i>Convertible Sports</a></li>
+            <li><a href="cars.html?category=Economy"><i class="fas fa-angle-right me-2"></i>Economy Sedans</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Contact Details</h5>
+          <ul class="footer-links text-light">
+            <li class="d-flex gap-3 align-items-center mb-3">
+              <i class="fas fa-map-marker-alt text-warning"></i>
+              <span>750 Fifth Avenue, Suite 1200, New York, NY 10019</span>
+            </li>
+            <li class="d-flex gap-3 align-items-center mb-3">
+              <i class="fas fa-phone-alt text-warning"></i>
+              <span>+1 (800) 555-0199</span>
+            </li>
+            <li class="d-flex gap-3 align-items-center mb-3">
+              <i class="fas fa-envelope text-warning"></i>
+              <span>support@driveease-rentals.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center text-md-between d-md-flex align-items-center justify-content-between">
+        <p class="mb-0">&copy; 2026 DriveEase Car Rental. All Rights Reserved.</p>
+        <p class="mb-0 mt-2 mt-md-0 text-muted">Designed for smooth road journeys worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+  <!-- Custom Script -->
+  <script src="js/script.js"></script>
+</body>
+</html>
