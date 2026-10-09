@@ -901,3 +901,46 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ── Back / Forward Navigation Buttons ── */
+.nav-history-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 12px;
+}
+.nav-history-btns button {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.nav-history-btns button:hover:not(:disabled) {
+  background: rgba(245,158,11,0.25);
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+.nav-history-btns button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Navbar alignment fix with history buttons ── */
+.navbar-custom .container {
+  display: flex;
+  align-items: center;
+}
+.navbar-custom .navbar-brand {
+  flex-shrink: 0;
+}
+.navbar-custom .nav-history-btns {
+  flex-shrink: 0;
+}

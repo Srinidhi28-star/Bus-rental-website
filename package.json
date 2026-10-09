@@ -1,0 +1,25 @@
+{
+  "name": "bus-rental-website",
+  "version": "1.0.0",
+  "description": "DriveEase is a complete, modern, and fully responsive Car Rental Web Application built with HTML5, CSS3, JavaScript (ES6+), and Bootstrap 5.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Srinidhi28-star/Bus-rental-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Srinidhi28-star/Bus-rental-website/issues"
+  },
+  "homepage": "https://github.com/Srinidhi28-star/Bus-rental-website#readme",
+  "dependencies": {
+    "nodemailer": "^10.0.16"
+  }
+}

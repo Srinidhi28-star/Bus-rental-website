@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveEase | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background:#f0f4f8; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:'Plus Jakarta Sans',sans-serif; padding:2rem 0; }
+    .auth-card { background:#fff; border-radius:18px; box-shadow:0 8px 40px rgba(0,0,0,.10); padding:2.5rem 2rem; max-width:480px; width:100%; }
+    .auth-brand { font-size:1.7rem; font-weight:800; color:#1a1a2e; text-decoration:none; display:block; text-align:center; margin-bottom:.25rem; }
+    .auth-brand span { color:#f59e0b; }
+    .auth-subtitle { text-align:center; color:#6b7280; margin-bottom:1.6rem; font-size:.95rem; }
+    .btn-accent { background:#f59e0b; border:none; color:#1a1a2e; font-weight:700; }
+    .btn-accent:hover { background:#d97706; color:#fff; }
+    .tab-btn { cursor:pointer; padding:.5rem 1.5rem; border-radius:8px; font-weight:600; border:none; background:transparent; color:#6b7280; transition:all .2s; }
+    .tab-btn.active { background:#f59e0b; color:#1a1a2e; }
+    .form-panel { display:none; }
+    .form-panel.active { display:block; }
+    .otp-inputs { display:flex; gap:10px; justify-content:center; margin:1rem 0; }
+    .otp-box { width:48px; height:52px; text-align:center; font-size:1.4rem; font-weight:700; border:2px solid #e5e7eb; border-radius:10px; outline:none; }
+    .otp-box:focus { border-color:#f59e0b; box-shadow:0 0 0 3px rgba(245,158,11,.15); }
+    .otp-timer { font-size:.85rem; color:#6b7280; text-align:center; margin-top:.5rem; }
+    .otp-timer a { color:#f59e0b; font-weight:600; cursor:pointer; text-decoration:none; }
+    .otp-timer a.disabled { color:#9ca3af; pointer-events:none; }
+    .step-indicator { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:1.5rem; }
+    .step-dot { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.8rem; background:#e5e7eb; color:#6b7280; }
+    .step-dot.active { background:#f59e0b; color:#1a1a2e; }
+    .step-dot.done { background:#22c55e; color:#fff; }
+    .step-line { flex:1; height:2px; background:#e5e7eb; max-width:40px; }
+    .step-line.done { background:#22c55e; }
+    .section-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#9ca3af; margin:1rem 0 .5rem; }
+  </style>
+</head>
+<body>
+<div class="auth-card">
+  <a href="login.html" class="auth-brand"><i class="fas fa-car-side text-warning me-2"></i>Drive<span>Ease</span></a>
+  <p class="auth-subtitle">Your premium car rental platform</p>
+
+  <!-- Tabs -->
+  <div class="d-flex justify-content-center gap-2 mb-4">
+    <button class="tab-btn active" id="tabLogin"    onclick="switchTab('login')">Sign In</button>
+    <button class="tab-btn"        id="tabRegister" onclick="switchTab('register')">Register</button>
+  </div>
+
+  <!-- ── LOGIN ── -->
+  <div class="form-panel active" id="loginPanel">
+    <form id="loginForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Username or Email</label>
+        <div class="input-group">
+          <span class="input-group-text bg-white"><i class="fas fa-user text-warning"></i></span>
+          <input type="text" class="form-control" id="loginUser" placeholder="Enter username or email" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Password</label>
+        <div class="input-group">
+          <span class="input-group-text bg-white"><i class="fas fa-lock text-warning"></i></span>
+          <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+          <button class="btn btn-outline-secondary" type="button" onclick="togglePwd('loginPassword','loginPwdIcon')" tabindex="-1">
+            <i class="fas fa-eye" id="loginPwdIcon"></i>
+          </button>
+        </div>
+      </div>
+      <div class="alert alert-danger py-2"   id="loginError"      style="display:none;font-size:.875rem;"><i class="fas fa-exclamation-circle me-1"></i> Invalid username or password.</div>
+      <div class="alert alert-warning py-2"  id="loginUnverified" style="display:none;font-size:.875rem;"><i class="fas fa-envelope me-1"></i> Please verify your email before signing in.</div>
+      <div class="d-grid mt-3">
+        <button type="submit" class="btn btn-accent btn-lg"><i class="fas fa-sign-in-alt me-2"></i>Sign In</button>
+      </div>
+      <p class="text-center text-muted mt-3 mb-0" style="font-size:.85rem;">
+        No account? <a href="#" onclick="switchTab('register')" class="text-warning fw-semibold">Register here</a>
+      </p>
+    </form>
+  </div>
+
+  <!-- ── REGISTER ── -->
+  <div class="form-panel" id="registerPanel">
+
+    <div class="step-indicator">
+      <div class="step-dot active" id="dot1">1</div>
+      <div class="step-line" id="line1"></div>
+      <div class="step-dot" id="dot2">2</div>
+      <div class="step-line" id="line2"></div>
+      <div class="step-dot" id="dot3"><i class="fas fa-check" style="font-size:.7rem;"></i></div>
+    </div>
+
+    <!-- Step 1: Details -->
+    <div id="step1">
+      <form id="registerForm" novalidate>
+
+        <p class="section-label"><i class="fas fa-user me-1"></i> Account Info</p>
+        <div class="row g-2 mb-2">
+          <div class="col-12">
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="fas fa-id-card text-warning"></i></span>
+              <input type="text" class="form-control" id="regName" placeholder="Full name" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="fas fa-user text-warning"></i></span>
+              <input type="text" class="form-control" id="regUsername" placeholder="Username" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="fas fa-phone text-warning"></i></span>
+              <input type="tel" class="form-control" id="regPhone" placeholder="Phone number">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="fas fa-envelope text-warning"></i></span>
+              <input type="email" class="form-control" id="regEmail" placeholder="Email address" required>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="fas fa-lock text-warning"></i></span>
+              <input type="password" class="form-control" id="regPassword" placeholder="Password (min. 6 chars)" required>
+              <button class="btn btn-outline-secondary" type="button" onclick="togglePwd('regPassword','regPwdIcon')" tabindex="-1">
+                <i class="fas fa-eye" id="regPwdIcon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="section-label"><i class="fas fa-map-marker-alt me-1"></i> Customer Address</p>
+        <div class="row g-2 mb-3">
+          <div class="col-12">
+            <input type="text" class="form-control" id="regStreet" placeholder="Street address">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="regCity" placeholder="City">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="regState" placeholder="State">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="regZip" placeholder="ZIP">
+          </div>
+          <div class="col-12">
+            <input type="text" class="form-control" id="regCountry" placeholder="Country">
+          </div>
+        </div>
+
+        <div class="alert alert-danger py-2" id="registerError" style="display:none;font-size:.875rem;"></div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-accent btn-lg" id="sendOtpBtn">
+            <i class="fas fa-paper-plane me-2"></i>Send Verification OTP
+          </button>
+        </div>
+        <p class="text-center text-muted mt-3 mb-0" style="font-size:.85rem;">
+          Have an account? <a href="#" onclick="switchTab('login')" class="text-warning fw-semibold">Sign in</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- Step 2: OTP -->
+    <div id="step2" style="display:none;">
+      <p class="text-center text-muted mb-1" style="font-size:.9rem;">We sent a 6-digit OTP to</p>
+      <p class="text-center fw-bold mb-3" id="otpTargetEmail" style="color:#1a1a2e;"></p>
+      <div class="otp-inputs">
+        <input type="text" maxlength="1" class="otp-box" id="o1">
+        <input type="text" maxlength="1" class="otp-box" id="o2">
+        <input type="text" maxlength="1" class="otp-box" id="o3">
+        <input type="text" maxlength="1" class="otp-box" id="o4">
+        <input type="text" maxlength="1" class="otp-box" id="o5">
+        <input type="text" maxlength="1" class="otp-box" id="o6">
+      </div>
+      <div class="otp-timer">
+        Expires in <span id="timerDisplay">02:00</span> &nbsp;|&nbsp;
+        <a id="resendLink" class="disabled" onclick="resendOtp()">Resend OTP</a>
+      </div>
+      <div class="alert alert-danger py-2 mt-2" id="otpError" style="display:none;font-size:.875rem;"></div>
+      <div class="d-grid mt-3">
+        <button class="btn btn-accent btn-lg" onclick="verifyOtp()">
+          <i class="fas fa-shield-alt me-2"></i>Verify & Create Account
+        </button>
+      </div>
+      <div class="text-center mt-2">
+        <a href="#" onclick="goBackToStep1()" class="text-muted" style="font-size:.85rem;">
+          <i class="fas fa-arrow-left me-1"></i>Change email
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /registerPanel -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+<script>
+  const API = 'http://localhost:8080';
+
+  let pendingUser   = null;
+  let timerInterval = null;
+
+  // ── Tab switch ──
+  function switchTab(tab) {
+    document.getElementById('loginPanel').classList.toggle('active', tab === 'login');
+    document.getElementById('registerPanel').classList.toggle('active', tab === 'register');
+    document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
+    document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
+  }
+
+  function togglePwd(fieldId, iconId) {
+    const f = document.getElementById(fieldId);
+    const i = document.getElementById(iconId);
+    f.type = f.type === 'password' ? 'text' : 'password';
+    i.classList.toggle('fa-eye',       f.type === 'password');
+    i.classList.toggle('fa-eye-slash', f.type !== 'password');
+  }
+
+  // ── LocalStorage helpers ──
+  function getUsers()       { return JSON.parse(localStorage.getItem('driveease_users') || '[]'); }
+  function saveUsers(users) { localStorage.setItem('driveease_users', JSON.stringify(users)); }
+
+  // ── Timer ──
+  function startTimer(seconds) {
+    clearInterval(timerInterval);
+    document.getElementById('resendLink').classList.add('disabled');
+    const display = document.getElementById('timerDisplay');
+    let rem = seconds;
+    display.textContent = fmt(rem);
+    timerInterval = setInterval(() => {
+      rem--;
+      display.textContent = fmt(rem);
+      if (rem <= 0) {
+        clearInterval(timerInterval);
+        display.textContent = '00:00';
+        document.getElementById('resendLink').classList.remove('disabled');
+      }
+    }, 1000);
+  }
+  function fmt(s) {
+    return `${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
+  }
+
+  // ── OTP boxes: auto-advance & paste ──
+  document.addEventListener('DOMContentLoaded', () => {
+    const boxes = document.querySelectorAll('.otp-box');
+    boxes.forEach((box, i) => {
+      box.addEventListener('input', () => {
+        box.value = box.value.replace(/\D/g,'');
+        if (box.value && i < boxes.length - 1) boxes[i+1].focus();
+      });
+      box.addEventListener('keydown', e => {
+        if (e.key === 'Backspace' && !box.value && i > 0) boxes[i-1].focus();
+      });
+      box.addEventListener('paste', e => {
+        e.preventDefault();
+        const paste = e.clipboardData.getData('text').replace(/\D/g,'').slice(0,6);
+        [...paste].forEach((ch, idx) => { if (boxes[idx]) boxes[idx].value = ch; });
+        boxes[Math.min(paste.length, 5)].focus();
+      });
+    });
+  });
+
+  function getEnteredOtp() {
+    return ['o1','o2','o3','o4','o5','o6'].map(id => document.getElementById(id).value).join('');
+  }
+  function clearOtpBoxes() {
+    ['o1','o2','o3','o4','o5','o6'].forEach(id => document.getElementById(id).value = '');
+  }
+
+  // ── Step nav ──
+  function showStep(n) {
+    document.getElementById('step1').style.display = n === 1 ? 'block' : 'none';
+    document.getElementById('step2').style.display = n === 2 ? 'block' : 'none';
+    const states = n === 1 ? ['active','',''] : ['done','active',''];
+    ['dot1','dot2','dot3'].forEach((id,i) => {
+      const el = document.getElementById(id);
+      el.classList.remove('active','done');
+      if (states[i]) el.classList.add(states[i]);
+    });
+    document.getElementById('line1').classList.toggle('done', n >= 2);
+  }
+
+  function goBackToStep1() {
+    clearInterval(timerInterval);
+    clearOtpBoxes();
+    showStep(1);
+  }
+
+  // ── Register: send OTP via SMTP server ──
+  document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const errorEl = document.getElementById('registerError');
+    const btn     = document.getElementById('sendOtpBtn');
+    errorEl.style.display = 'none';
+
+    const name     = document.getElementById('regName').value.trim();
+    const username = document.getElementById('regUsername').value.trim().toLowerCase();
+    const email    = document.getElementById('regEmail').value.trim().toLowerCase();
+    const password = document.getElementById('regPassword').value;
+    const phone    = document.getElementById('regPhone').value.trim();
+    const address  = {
+      street:  document.getElementById('regStreet').value.trim(),
+      city:    document.getElementById('regCity').value.trim(),
+      state:   document.getElementById('regState').value.trim(),
+      zip:     document.getElementById('regZip').value.trim(),
+      country: document.getElementById('regCountry').value.trim()
+    };
+
+    if (!name || !username || !email || !password) {
+      errorEl.innerHTML = '<i class="fas fa-exclamation-circle me-1"></i> Name, username, email and password are required.';
+      errorEl.style.display = 'block'; return;
+    }
+    if (password.length < 6) {
+      errorEl.innerHTML = '<i class="fas fa-exclamation-circle me-1"></i> Password must be at least 6 characters.';
+      errorEl.style.display = 'block'; return;
+    }
+
+    const users = getUsers();
+    if (users.find(u => u.username === username || u.email === email)) {
+      errorEl.innerHTML = '<i class="fas fa-exclamation-circle me-1"></i> Username or email already registered.';
+      errorEl.style.display = 'block'; return;
+    }
+
+    pendingUser = { name, username, email, password, phone, address, verified: false };
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending OTP...';
+
+    try {
+      const res  = await fetch(`${API}/api/send-otp`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ name, email })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to send OTP');
+
+      document.getElementById('otpTargetEmail').textContent = email;
+      document.getElementById('otpError').style.display = 'none';
+      showStep(2);
+      startTimer(120);
+    } catch (err) {
+      errorEl.innerHTML = `<i class="fas fa-exclamation-circle me-1"></i> ${err.message}`;
+      errorEl.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Verification OTP';
+    }
+  });
+
+  // ── Verify OTP ──
+  async function verifyOtp() {
+    const entered = getEnteredOtp();
+    const errorEl = document.getElementById('otpError');
+    errorEl.className = 'alert alert-danger py-2 mt-2';
+    errorEl.style.display = 'none';
+
+    if (entered.length < 6) {
+      errorEl.innerHTML = '<i class="fas fa-exclamation-circle me-1"></i> Enter the full 6-digit OTP.';
+      errorEl.style.display = 'block'; return;
+    }
+
+    try {
+      const res  = await fetch(`${API}/api/verify-otp`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ email: pendingUser.email, otp: entered })
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        clearOtpBoxes();
+        document.getElementById('o1').focus();
+        errorEl.innerHTML = `<i class="fas fa-times-circle me-1"></i> ${data.error}`;
+        errorEl.style.display = 'block'; return;
+      }
+
+      // Save verified user
+      pendingUser.verified = true;
+      const users = getUsers();
+      users.push(pendingUser);
+      saveUsers(users);
+      clearInterval(timerInterval);
+
+      document.getElementById('dot3').classList.add('done');
+      document.getElementById('line2').classList.add('done');
+
+      errorEl.className = 'alert alert-success py-2 mt-2';
+      errorEl.innerHTML = '<i class="fas fa-check-circle me-1"></i> Email verified! Redirecting to sign in...';
+      errorEl.style.display = 'block';
+      setTimeout(() => { switchTab('login'); showStep(1); }, 1800);
+
+    } catch (err) {
+      errorEl.innerHTML = '<i class="fas fa-exclamation-circle me-1"></i> Verification failed. Try again.';
+      errorEl.style.display = 'block';
+    }
+  }
+
+  // ── Resend OTP ──
+  async function resendOtp() {
+    if (!pendingUser) return;
+    clearOtpBoxes();
+    document.getElementById('otpError').style.display = 'none';
+    try {
+      const res = await fetch(`${API}/api/send-otp`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ name: pendingUser.name, email: pendingUser.email })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      startTimer(120);
+    } catch (err) {
+      const errorEl = document.getElementById('otpError');
+      errorEl.innerHTML = `<i class="fas fa-exclamation-circle me-1"></i> ${err.message}`;
+      errorEl.style.display = 'block';
+    }
+  }
+
+  // ── Login ──
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const userInput = document.getElementById('loginUser').value.trim().toLowerCase();
+    const password  = document.getElementById('loginPassword').value;
+
+    document.getElementById('loginError').style.display      = 'none';
+    document.getElementById('loginUnverified').style.display = 'none';
+
+    const users = getUsers();
+    const match = users.find(u => (u.username === userInput || u.email === userInput) && u.password === password);
+
+    if (!match)          { document.getElementById('loginError').style.display      = 'block'; return; }
+    if (!match.verified) { document.getElementById('loginUnverified').style.display = 'block'; return; }
+
+    sessionStorage.setItem('driveease_logged_in', 'true');
+    sessionStorage.setItem('driveease_user', match.name);
+    window.location.href = 'index.html';
+  });
+</script>
+</body>
+</html>

@@ -169,7 +169,7 @@ function generateCarCardHTML(car) {
         <div class="car-card-img-wrapper">
           <img src="${car.image}" alt="${car.name}" class="car-card-img" loading="lazy">
           <span class="car-category-badge">${car.category}</span>
-          <div class="car-price-badge">$${car.price} <span>/ day</span></div>
+          <div class="car-price-badge">₹${car.price} <span>/ day</span></div>
         </div>
         <div class="car-card-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
@@ -302,7 +302,7 @@ function initCarsPage() {
     const maxPrice = priceRange ? parseFloat(priceRange.value) : 300;
 
     if (priceDisplay && priceRange) {
-      priceDisplay.textContent = `$${priceRange.value}`;
+      priceDisplay.textContent = `₹${priceRange.value}`;
     }
 
     const filtered = carsData.filter(car => {
@@ -380,7 +380,7 @@ function initCarDetailPage() {
 
   if (nameEl) nameEl.textContent = car.name;
   if (catEl) catEl.textContent = car.category;
-  if (priceEl) priceEl.textContent = `$${car.price}`;
+  if (priceEl) priceEl.textContent = `₹${car.price}`;
   if (ratingEl) ratingEl.textContent = car.rating;
   if (reviewsEl) reviewsEl.textContent = `(${car.reviewsCount} customer reviews)`;
   if (imgEl) {
@@ -448,9 +448,9 @@ function initCarDetailPage() {
     const grandTotal = baseCost + extrasTotal;
 
     if (totalDaysEl) totalDaysEl.textContent = `${days} day${days > 1 ? 's' : ''}`;
-    if (baseCostEl) baseCostEl.textContent = `$${baseCost}`;
-    if (extrasCostEl) extrasCostEl.textContent = `$${extrasTotal}`;
-    if (grandTotalEl) grandTotalEl.textContent = `$${grandTotal}`;
+    if (baseCostEl) baseCostEl.textContent = `₹${baseCost}`;
+    if (extrasCostEl) extrasCostEl.textContent = `₹${extrasTotal}`;
+    if (grandTotalEl) grandTotalEl.textContent = `₹${grandTotal}`;
   }
 
   if (pickupDateInput) pickupDateInput.addEventListener("change", calculatePrice);

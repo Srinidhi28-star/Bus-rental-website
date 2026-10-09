@@ -25,6 +25,10 @@
   <!-- Sticky Responsive Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
     <div class="container">
+      <div class="nav-history-btns">
+        <button onclick="history.back()"    title="Go back"    id="btnBack"><i class="fas fa-chevron-left"></i></button>
+        <button onclick="history.forward()" title="Go forward" id="btnFwd"><i class="fas fa-chevron-right"></i></button>
+      </div>
       <a class="navbar-brand" href="index.html">
         <i class="fas fa-car-side text-warning me-2"></i>Drive<span>Ease</span>
       </a>
@@ -40,8 +44,8 @@
           <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
         </ul>
         <div class="d-flex align-items-center gap-3">
-          <a href="tel:+18005550199" class="text-white d-none d-xl-flex align-items-center me-2 text-decoration-none">
-            <i class="fas fa-phone-alt text-warning me-2"></i> +1 (800) 555-0199
+          <a href="tel:+917708010736" class="text-white d-none d-xl-flex align-items-center me-2 text-decoration-none">
+            <i class="fas fa-phone-alt text-warning me-2"></i> +91 7708010736
           </a>
           <a href="cars.html" class="btn btn-accent"><i class="fas fa-key me-1"></i> Book Now</a>
         </div>
@@ -72,8 +76,8 @@
             </div>
             <div>
               <h5 class="fw-bold text-navy mb-1">Phone Number</h5>
-              <p class="text-muted font-size-sm mb-1">+1 (800) 555-0199</p>
-              <p class="text-muted font-size-sm mb-0">+1 (212) 555-0144</p>
+              <p class="text-muted font-size-sm mb-1">+91 7708010736</p>
+              <p class="text-muted font-size-sm mb-0">+91 7708010736</p>
             </div>
           </div>
         </div>
@@ -322,7 +326,7 @@
             </li>
             <li class="d-flex gap-3 align-items-center mb-3">
               <i class="fas fa-phone-alt text-warning"></i>
-              <span>+1 (800) 555-0199</span>
+              <span>+91 7708010736</span>
             </li>
             <li class="d-flex gap-3 align-items-center mb-3">
               <i class="fas fa-envelope text-warning"></i>
@@ -342,6 +346,7 @@
   <!-- Bootstrap 5 JS Bundle CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
   <!-- Custom Script -->
+  <script>if (!sessionStorage.getItem('driveease_logged_in')) { window.location.href = 'login.html'; }</script>
   <script src="js/script.js"></script>
 </body>
 </html>
